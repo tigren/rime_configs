@@ -61,14 +61,22 @@ custom_phrase:
   db_class: stabledb
   enable_sentence: true
 
+#reverse_lookup:
+#  dictionary: stroke_simp
+#  enable_completion: true
+#  prefix: "`"
+#  suffix: "'"
+#  tips: 〔笔画〕
+#  preedit_format:
+#    - xlit/hspnz/一丨丿丶乙/
+
 reverse_lookup:
-  dictionary: stroke_simp
-  enable_completion: true
-  prefix: "`"
-  suffix: "'"
-  tips: 〔笔画〕
+  dictionary: pinyin_simp
   preedit_format:
-    - xlit/hspnz/一丨丿丶乙/
+    - "xform/([nl])v/$1ü/"
+    - "xform/([jqxy])v/$1u/"
+  prefix: "`"
+  tips: [拼音]
 
 punctuator:
   import_preset: default

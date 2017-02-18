@@ -3,8 +3,9 @@ var:
     full_shape: false
   previously_selected_schema: hepy
   schema_access_time:
-    double_pinyin_flypy: 1487406687
-    hepy: 1487406692
+    double_pinyin_flypy: 1487426765
+    hepy: 1487427459
     luna_pinyin: 1487392014
-    luna_pinyin_simp: 1487392672
-    wubi06: 1487393461
+    luna_pinyin_simp: 1487408079
+    pinyin_simp: 1487427212
+    wubi06: 1487427225

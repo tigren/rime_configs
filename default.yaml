@@ -12,6 +12,7 @@ schema_list:
   - schema: wubi06
   - schema: double_pinyin_flypy
   - schema: hepy
+  - schema: pinyin_simp
 
 switcher:
   caption: 〔方案選單〕
