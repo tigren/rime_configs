@@ -27,25 +27,6 @@ key_binder:
     - {accept: apostrophe, send: 3, when: has_menu}
   import_preset: default
 
-preset_color_schemes:
-  apathy:
-    author: "LIANG Hai"
-    back_color: 0xFFFFFF
-    border_height: 0
-    border_width: 0
-    candidate_format: "%c %@ "
-    comment_text_color: 0x999999
-    corner_radius: 5
-    font_face: "PingFangSC-Regular,H-SiuNiu,HanaMinA"
-    font_point: 16
-    hilited_candidate_back_color: 0xFFF0E4
-    hilited_candidate_text_color: 0xEE6E00
-    horizontal: true
-    inline_preedit: true
-    label_font_face: "PingFangSC-Light"
-    label_font_point: 11
-    name: "冷漠 / Apathy"
-    text_color: 0x424242
 punctuator:
   import_preset: symbols
 recognizer:
@@ -59,7 +40,7 @@ reverse_lookup:
     - "xform/([nl])v/$1ü/"
     - "xform/([jqxy])v/$1u/"
   prefix: z
-  tips: "[拼音]"
+  tips: [拼音]
 schema:
   author:
     - "發明人 王永民先生"
@@ -77,16 +58,14 @@ show_notifications_via_notification_center: false
 speller:
   delimiter: " ;'"
   max_code_length: 4
-style:
-  color_scheme: apathy
 switches:
   - name: ascii_mode
     reset: 0
-    states: ["中文", "英文"]
+    states: [中文, 英文]
   - name: full_shape
-    states: ["半角", "全角"]
+    states: [半角, 全角]
   - name: extended_charset
-    states: ["通用", "增廣"]
+    states: [通用, 增廣]
 translator:
   dictionary: wubi06
   disable_user_dict_for_patterns:
@@ -99,4 +78,3 @@ translator:
   enable_user_dict: true
   encode_commit_history: true
   max_phrase_length: 4
-us_keyboard_layout: true
