@@ -11,6 +11,7 @@ schema_list:
   #- schema: luna_pinyin_tw
   - schema: wubi06
   - schema: double_pinyin_flypy
+  - schema: double_pinyin_bullpy
   - schema: hepy
   - schema: pinyin_simp
 
