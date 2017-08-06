@@ -1,0 +1,121 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: double_pinyin_bullpy
+  name: 大牛双拼
+  version: "0.10"
+  author:
+    - double pinyin layout by 吅吅大山
+    - Rime schema by Apocalypse
+  description: |
+    朙月拼音＋大牛双拼方案。
+  dependencies:
+    - stroke
+
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    reset: 1
+    states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - script_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    - erase/^xx$/
+    - xform/^([aoe].*)$/E$1/
+    - derive/^([jqxy])u(.*)$/$1v$2/
+    - derive/^po$/pe/
+    - xform/^sh/U/
+    - derive/U/V/
+    - xform/^zh/O/
+    - derive/O/A/
+    - xform/^ch/I/
+    - xform/ian$/C/
+    - derive/C/Q/
+    - xform/ui$/N/
+    - derive/N/V/
+    - xform/iang$/N/
+    - xform/iao$/M/
+    - xform/uang$|ve$/X/
+    - xform/uan$/Z/
+    - xform/(.)eng$|van$/$1J/
+    - xform/ua$/Q/
+    - xform/(.)ei$|vn$/$1W/
+    - xform/ou$/R/
+    - xform/iu$/T/
+    - xform/er$/U/
+    - xform/uo$/O/
+    - xform/ie$/P/
+    - xform/(.)ao$/$1S/
+    - xform/(.)an$/$1D/
+    - xform/(.)ang$/$1F/
+    - xform/uai$|ing$/G/
+    - xform/(.)ai$|ue$/$1H/
+    - xform/(.)en$|ia$/$1K/
+    - xform/i?ong$/L/
+    - xform/in$/B/
+    - xform/un$/Y/
+    - xlit/QWERTYUIOPASDFGHJKLZXCVBNM/qwertyuiopasdfghjklzxcvbnm/
+    #- abbrev/^(.).+$/$1/
+
+translator:
+  dictionary: luna_pinyin
+  prism: double_pinyin_bullpy
+  preedit_format: 
+
+reverse_lookup:
+  dictionary: stroke
+  enable_completion: true
+  prefix: "`"
+  suffix: "'"
+  tips: 〔筆畫〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+  comment_format:
+    - xform/([nl])v/$1ü/
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
